@@ -1,0 +1,30 @@
+<%- include('../../layout/header.html') -%>
+
+<h1>All our books !</h1>
+<hr>
+
+<% if (isLogged) { %>
+    Actions : <a href="/book">Create a new book</a>
+    <hr>
+<% } %>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Description</th>
+            <th>Price</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% for (let i = 0; i < books.length; i++) { %>
+        <tr>
+            <td><a href="/book/<%= books[i].id %>"><%= books[i].title %></a></td>
+            <td><%= books[i].description %></td>
+            <td><%= books[i].price %>&euro;</td>
+        </tr>
+        <% } %>
+    </tbody>
+</table>
+
+<%- include('../../layout/footer.html') -%>

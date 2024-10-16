@@ -1,0 +1,40 @@
+<%- include('../../layout/header.html') -%>
+
+<div class="row">
+    <div class="offset-4 col-4">
+
+        <h1>Register your new account</h1>
+        
+        
+        <% if (typeof errors !== 'undefined' && errors.length > 0) { %>
+            <ul>
+                <% errors.forEach(function(error) { %>
+                    <li><%= error.msg %></li>
+                <% }); %>
+            </ul>
+        <% } %>
+        
+        
+        <form action="/register" method="POST" novalidate>
+            <div class="mb-3">
+                <label for="username" class="form-label">Username:</label>
+                <input type="text" class="form-control" id="username" name="username" value="<%= username %>" required>
+            </div>
+        
+            <div class="mb-3">
+                <label for="email" class="form-label">Email:</label>
+                <input type="email" class="form-control" id="email" name="email" value="<%= email %>" required>
+            </div>
+        
+            <div class="mb-3">
+                <label for="password" class="form-label">Password:</label>
+                <input type="password" class="form-control" id="password" name="password" required>
+            </div>
+        
+            <button type="submit" class="btn btn-success">Create your new account</button> or <a href="/login">sign in</a>
+        </form>
+
+    </div>
+</div>
+
+<%- include('../../layout/footer.html') -%>

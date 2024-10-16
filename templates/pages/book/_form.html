@@ -1,0 +1,27 @@
+<% if (typeof errors !== 'undefined' && errors.length > 0) { %>
+    <ul>
+        <% errors.forEach(function(error) { %>
+            <li><%= error.msg %></li>
+        <% }); %>
+    </ul>
+<% } %>
+
+
+<form action="<%= book && book._id ? '/book/' + book._id + '/edit' : '/book' %>" method="POST" novalidate>
+    <div class="mb-3">
+        <label for="title" class="form-label">Title:</label>
+        <input type="text" class="form-control" id="title" name="title" value="<%= title %>" required>
+    </div>
+
+    <div class="mb-3">
+        <label for="description" class="form-label">Description:</label>
+        <textarea name="description" class="form-control" id="description" name="description"><%= description %></textarea>
+    </div>
+
+    <div class="mb-3">
+        <label for="price" class="form-label">Price:</label>
+        <input type="number" class="form-control" id="price" name="price" value="<%= price %>" required>
+    </div>
+
+    <button type="submit" class="btn btn-success">Save</button>
+</form>
