@@ -35,7 +35,7 @@ exports.create = async (req, res) => {
         price 
     } = req.body;
 
-    const errors = validationResult(req);
+    const errors = validationResult(req);// sera null si on utilise pas le BookChecker
 
     let book; 
     
@@ -145,6 +145,9 @@ exports.delete = async (req, res) => {
             errors: [{ msg: "Book not found." }],
         });
     }
+    // Quand on est en GET, on affiche un message de confirmation de suppression
+
+    // Quand on est en POST, on supprime le livre et on redirige vers la liste des livres
     if (req.method === 'POST') {
 
     }

@@ -4,7 +4,7 @@
  * 
  * @param {*} req 
  * @param {*} res 
- * @param {*} next 
+ * @param {*} next : fonction qui vient du controller
  * @returns 
  */
 exports.isGranted = (req, res, next) => {
@@ -31,7 +31,7 @@ exports.isAuthenticated = (req, res, next) => {
 };
 
 exports.isLogged = (req, res, next) => {
-    res.locals.isLogged = !!req.session.user;
+    res.locals.isLogged = !!req.session.user; // !! permet de convertir en boolean donc si req.session.user est null, isLogged sera false
     res.locals.username = req.session.user ? req.session.user.username : null;
     next();
 };

@@ -23,8 +23,8 @@ router.get('/', homepageController.index);
 router.get('/books', bookController.index);
 
 // Create
-router.get('/book', security.isGranted, bookController.create);
-router.post('/book', security.isGranted, bookChecker.create, bookController.create);
+router.get('/book', security.isGranted, bookController.create);// security.isGranted est un middleware qui permet de vérifier si l'utilisateur est connecté. Elle s'execute avant la fonction bookController.create
+router.post('/book', security.isGranted, bookChecker.create, bookController.create);// controle si connecté, les données du formulaire sont valides et execute la fonction bookController.create
 
 // Read
 router.get('/book/:id', bookController.read);

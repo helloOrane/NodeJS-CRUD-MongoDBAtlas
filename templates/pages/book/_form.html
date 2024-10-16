@@ -6,7 +6,7 @@
     </ul>
 <% } %>
 
-
+<!-- novalidate: on désactive le précontrole côté front de la soumission de mon formulaire. Pas obligatoire mais du coup, pas de controle sur le message d'erreur, le design, etc -->
 <form action="<%= book && book._id ? '/book/' + book._id + '/edit' : '/book' %>" method="POST" novalidate>
     <div class="mb-3">
         <label for="title" class="form-label">Title:</label>

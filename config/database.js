@@ -1,5 +1,5 @@
-require('dotenv').config();
-const mongoose = require('mongoose');
+require('dotenv').config();//lib qui permet de lire les variables d'environnement dans un fichier .env et l'injecter ds node js
+const mongoose = require('mongoose');//ORM
 
 const connectDB = async () => {
     try {

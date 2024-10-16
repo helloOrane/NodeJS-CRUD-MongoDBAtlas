@@ -1,5 +1,10 @@
 <%- include('../../layout/header.html') -%>
 
 <h1>Delete a Book !</h1>
-
+<form action="/book/<%= book._id %>/delete" method="POST">
+    <!-- Input caché pour piéger les bots qui scanneraient le site -->
+    <input type="hidden" name="_method" value="DELETE">
+    <p>Are you sure you want to delete this book ?</p>
+    <a href="" class="btn btn-">
+</form>
 <%- include('../../layout/footer.html') -%>
